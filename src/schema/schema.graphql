@@ -1,0 +1,31 @@
+type Query {
+  characters: [Character!]!
+  character(id: ID!): Character
+}
+
+type Mutation {
+  addVote(character: ID!): ResultOperation!
+  updateVote(id: ID!, character: ID!): ResultOperation!
+  deleteVote(id: ID!): ResultOperation!
+}
+
+type Subscription {
+  changeVotes: [Character!]!
+}
+
+type ResultOperation {
+  status: Boolean!
+  message: String!
+  characters: [Character!]!
+}
+
+type Character {
+  id: ID!
+  name: String!
+  actor: String!
+  description: String!
+  total_episodes: Int!
+  photo: String!
+  votes: Int!
+  url: String!
+}
